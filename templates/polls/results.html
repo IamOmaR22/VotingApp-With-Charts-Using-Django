@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
 <h1 class="mb-5 text-center">{{ question.question_text }}</h1>
 
 <ul class="list-group mb-5">
@@ -10,6 +13,36 @@
 	{% endfor %}
 </ul>
 
+<div id="myChart"></div>
+
 <a class="btn btn-secondary" href="{% url 'polls:index' %}">Back To Polls</a>
 <a class="btn btn-dark" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+
+<script>
+	var chartData = {
+		"type":"bar",
+		"scale-x":{
+			"values":[
+			"Omar",
+			"Faruk",
+			"Biki"
+			]
+		},
+		"series":[
+		{
+			"values":[
+			25,
+			23,
+			27,
+			]
+		}
+		]
+	}
+
+	zingchart.render({
+    id: 'myChart',
+    data: chartData,
+  });
+</script>
+
 {% endblock %}
