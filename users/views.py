@@ -10,7 +10,7 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')  # Grab the username that is submitted for now
             messages.success(request, f'Account created for {username}!')
-            return redirect('index')
+            return redirect('login')
 
     else:    # This is not a POST Request. We will just create a form
 

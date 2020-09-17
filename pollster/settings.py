@@ -124,7 +124,7 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
+LOGIN_REDIRECT_URL = 'index'
 
 from django.contrib.messages import constants as messages
 
